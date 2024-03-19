@@ -2,3 +2,5 @@ black
 ipykernel
 matplotlib
 numpy
+PyPDF2
+pyprojroot
