@@ -17,8 +17,8 @@ mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
 apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
 add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" -y
 apt-get update
-apt-get install libcudnn8=8.9.0.*-1+cuda11.8
-apt-get install libcudnn8-dev=8.9.0.*-1+cuda11.8
+apt-get install libcudnn8=8.9.0.*-1+cuda12.3
+apt-get install libcudnn8-dev=8.9.0.*-1+cuda12.3
 # install recommended packages
 apt-get install zlib1g g++ freeglut3-dev \
     libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev libfreeimage-dev \
@@ -27,3 +27,6 @@ apt-get install zlib1g g++ freeglut3-dev \
 pip3 cache purge
 apt-get autoremove -y
 apt-get clean
+
+CUDACXX=/usr/local/cuda/bin/nvcc CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major" FORCE_CMAKE=1 \
+    pip install jupyterlab llama-cpp-python --no-cache-dir --force-reinstall --upgrade --verbose
