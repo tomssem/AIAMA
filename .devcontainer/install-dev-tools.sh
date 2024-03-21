@@ -32,3 +32,6 @@ CUDACXX=/usr/local/cuda/bin/nvcc CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCH
     pip install jupyterlab llama-cpp-python --no-cache-dir --force-reinstall --upgrade --verbose
 
 git config --global --add safe.directory /workspaces/AIAMA
+
+git config --global user.email tfwnicholson@gmail.com
+git config --global user.name "Tom Nicholson"
