@@ -1,4 +1,5 @@
 black
+huggingface-hub
 ipykernel
 matplotlib
 numpy

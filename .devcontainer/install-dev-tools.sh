@@ -6,7 +6,7 @@ apt-get install software-properties-common wget curl \
     python3-dev python3-pip python3-wheel python3-setuptools -y
 # install Python packages
 python3 -m pip install --upgrade pip
-pip3 install --user -r .devcontainer/requirements.txt
+pip3 install --user -r requirements.txt
 # update CUDA Linux GPG repository key
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
 dpkg -i cuda-keyring_1.0-1_all.deb
@@ -30,3 +30,5 @@ apt-get clean
 
 CUDACXX=/usr/local/cuda/bin/nvcc CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major" FORCE_CMAKE=1 \
     pip install jupyterlab llama-cpp-python --no-cache-dir --force-reinstall --upgrade --verbose
+
+git config --global --add safe.directory /workspaces/AIAMA
